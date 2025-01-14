@@ -1,4 +1,5 @@
 # enumgen
+[![Go Reference](https://pkg.go.dev/badge/github.com/yikakia/enumgen.svg)](https://pkg.go.dev/github.com/yikakia/enumgen)
 
 本仓库提供为 go 开发中的 “枚举” 类型提供类型转换的生成方式
 
