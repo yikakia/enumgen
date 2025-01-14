@@ -1,4 +1,4 @@
-module enumgen
+module github.com/yikakia/enumgen
 
 go 1.23
 
