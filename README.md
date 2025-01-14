@@ -35,10 +35,14 @@ o := Order{
 比起明面的强制类型转换，使用方法包装后，行为更加明确，编码过程也更为流畅
 
 ## 基础使用
-在枚举类型的定义文件中，写上如下注释
-```go
-//go:generate go run -v -mod=mod github.com/yikakia/enumgen -type Money
 
+使用下方命令安装
+```shell
+go install github.com/yikakia/enumgen
+```
+
+假设有枚举类型的定义文件
+```go
 package money
 type Money int64
 
@@ -47,11 +51,35 @@ const (
 	MoneyUSD
 )
 ```
+在其对应目录下，使用如下命令
+```shell
+enumgen -type Money
+```
+
 即可为枚举类型生成基础数据类型转换，及 `String() string` 的方法
 
-## 更多使用 TODO
+后续有新增枚举，直接使用 `go generate` 命令即可
 
+## 更多使用
+命令格式：
+```shell
+enumgen [flags] -type T [directory]
+enumgen [flags] -type T files... # 必须在同一个包中
+```
 
+更多参数:
+```
+-linecomment
+使用行内注释作为 String 方法的展示
+-output string
+输出的文件名; 默认为 srcdir/<type>_string.go
+-tags string
+逗号分割的用于 go build 命令的参数
+-trimprefix prefix
+移除 String 方法中的特定前缀
+-type string
+逗号分割的一系列名字，必填
+```
 
 ## 关于
 本项目实现参考 [stringer](https://golang.org/x/tools/cmd/stringer)
