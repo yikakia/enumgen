@@ -82,4 +82,4 @@ enumgen [flags] -type T files... # 必须在同一个包中
 ```
 
 ## 关于
-本项目实现参考 [stringer](https://golang.org/x/tools/cmd/stringer)
+本项目实现基于 [stringer](https://golang.org/x/tools/cmd/stringer) 进行修改
